@@ -1,0 +1,245 @@
+/* Label styling */
+.schedule-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Input and Select Styling */
+.schedule-input,
+.schedule-select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+/* Focus effect */
+.schedule-input:focus,
+.schedule-select:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Select box styling */
+.schedule-select {
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Checkbox styling */.checkbox-group {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    gap: 10px; /* Space between items */
+}
+
+.checkbox-group .schedule-checkbox {
+    flex: 1 1 calc(25% - 10px); /* Each item takes 25% of the container width minus the gap */
+    max-width: calc(25% - 10px); /* Ensure each item doesn't exceed 25% of the container width */
+    display: flex;
+    align-items: center; /* Center checkbox and text vertically */
+    position: relative;
+    cursor: pointer;
+    font-size: 13px;
+    min-height: 40px; /* Ensure consistent height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Hide default checkbox */
+.schedule-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom checkbox style */
+.schedule-checkbox .checkmark {
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 8px;
+    transition: 0.3s;
+    flex-shrink: 0; /* Prevent the checkbox from shrinking */
+}
+
+/* Checkbox checked state */
+.schedule-checkbox input:checked + .checkmark {
+    background: #007bff;
+    border-color: #007bff;
+}
+
+.schedule-checkbox input:checked + .checkmark::after {
+    content: "✔";
+    position: absolute;
+    left: 4px;
+    top: -1px;
+    color: white;
+    font-size: 14px;
+}
+/* Checkbox checked state */
+.schedule-checkbox input:checked+.checkmark {
+    background: #007bff;
+    border-color: #007bff;
+    position: relative;
+}
+
+.schedule-checkbox input:checked+.checkmark::after {
+    content: "✔";
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Submit Button */
+.schedule-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.schedule-button:hover {
+    background: #0056b3;
+}
+
+/* Main container to arrange form and table side by side */
+.schedule-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Form container */
+.form-container {
+    flex: 1;
+    max-width: 300px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table container */
+.table-container {
+    flex: 2;
+    overflow-x: auto;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+tr:hover {
+    background: #f1f1f1;
+}
+
+/* Buttons */
+.edit-btn {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-btn {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+.edit-btn:hover {
+    color: #0056b3;
+}
+
+/* Responsive: Stack elements vertically on smaller screens */
+@media (max-width: 768px) {
+    .schedule-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+/* Modal Background (Hidden by Default) */
+.modal {
+    display: none;
+    /* Ensure modal is hidden initially */
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
